@@ -1,0 +1,24 @@
+@inherits LayoutComponentBase
+
+@code {
+
+
+
+}
+
+<AnimaiteTheme Theme="theme-dark">
+    <div>
+        <NavDrawer>
+            <Heading>Anim<span class="ai-accent">ai</span>te</Heading>
+            <div class="separator"></div>
+            <NavDrawerPage Icon="model_training" Route="/Training" DefaultRoute>Training</NavDrawerPage>
+            <NavDrawerPage Icon="bolt" Route="/Models">Models</NavDrawerPage>
+            <NavDrawerPage Icon="photo" Route="/SpriteViewer">Sprite Viewer</NavDrawerPage>
+            <NavDrawerPage Icon="dataset" Route="/DatasetManager">Dataset Manager</NavDrawerPage>
+        </NavDrawer>
+    </div>
+
+    <main style="max-height: 100vh; overflow: scroll;">
+        @Body
+    </main>
+</AnimaiteTheme>

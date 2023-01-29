@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Animaite.Trainer.Common", "Animaite.Trainer.Common\Animaite.Trainer.Common.csproj", "{FFEEF7C6-6DEF-4713-8002-EC20D6D90145}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Animaite.Trainer.WebApp", "Animaite.Trainer.WebApp\Animaite.Trainer.WebApp.csproj", "{2F594D72-57B6-4D43-9460-CD74E10A13D3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FFEEF7C6-6DEF-4713-8002-EC20D6D90145}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FFEEF7C6-6DEF-4713-8002-EC20D6D90145}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FFEEF7C6-6DEF-4713-8002-EC20D6D90145}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FFEEF7C6-6DEF-4713-8002-EC20D6D90145}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F594D72-57B6-4D43-9460-CD74E10A13D3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F594D72-57B6-4D43-9460-CD74E10A13D3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F594D72-57B6-4D43-9460-CD74E10A13D3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F594D72-57B6-4D43-9460-CD74E10A13D3}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

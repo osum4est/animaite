@@ -1,0 +1,51 @@
+@function create-theme(
+  $primary, 
+  $secondary, 
+  $surface, 
+  $background, 
+  $on-primary, 
+  $on-secondary, 
+  $on-surface, 
+  $on-background,
+  $font,
+  $transition: 0.1s ease-in-out) {
+  @return (
+          "primary": $primary,
+          "primary-100": scale-color($primary, $lightness: 70%),
+          "primary-200": scale-color($primary, $lightness: 55%),
+          "primary-300": scale-color($primary, $lightness: 40%),
+          "primary-400": scale-color($primary, $lightness: 25%),
+          "primary-500": $primary,
+          "primary-600": scale-color($primary, $lightness: -25%),
+          "primary-700": scale-color($primary, $lightness: -40%),
+          "primary-800": scale-color($primary, $lightness: -55%),
+          "primary-900": scale-color($primary, $lightness: -70%),
+          "secondary": $secondary,
+          "secondary-100": scale-color($secondary, $lightness: 70%),
+          "secondary-200": scale-color($secondary, $lightness: 55%),
+          "secondary-300": scale-color($secondary, $lightness: 40%),
+          "secondary-400": scale-color($secondary, $lightness: 25%),
+          "secondary-500": $secondary,
+          "secondary-600": scale-color($secondary, $lightness: -25%),
+          "secondary-700": scale-color($secondary, $lightness: -40%),
+          "secondary-800": scale-color($secondary, $lightness: -55%),
+          "secondary-900": scale-color($secondary, $lightness: -70%),
+          "surface": $surface,
+          "background": $background,
+          "on-primary": $on-primary,
+          "on-secondary": $on-secondary,
+          "on-surface": $on-surface,
+          "on-background": $on-background,
+          "font": $font,
+          "transition": $transition
+  );
+}
+
+@mixin load-theme($theme) {
+  @for $i from 1 through length($theme) {
+    $key: nth(map-keys($theme), $i);
+    $value: nth(map-values($theme), $i);
+    --#{$key}: #{$value};
+  }
+}
+

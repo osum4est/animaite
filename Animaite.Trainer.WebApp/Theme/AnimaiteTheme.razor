@@ -1,0 +1,39 @@
+@inject IJSRuntime JsRuntime
+
+<HeadContent>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+    <link href="AnimaiteTheme.css" rel="stylesheet"/>
+</HeadContent>
+
+@code
+{
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+
+    [Parameter]
+    public string Theme { get; set; } = "";
+
+    private IJSObjectReference? _module;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            _module = await JsRuntime.InvokeAsync<IJSObjectReference>("import", "./Theme/AnimaiteTheme.razor.js");
+            await SetTheme(Theme);
+        }
+    }
+
+    protected override async Task OnParametersSetAsync()
+    {
+        await SetTheme(Theme);
+    }
+
+    private async Task SetTheme(string theme)
+    {
+        if (_module != null)
+            await _module.InvokeVoidAsync("setTheme", theme);
+    }
+}
+
+@ChildContent

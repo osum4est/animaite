@@ -1,0 +1,12 @@
+@code {
+
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+
+}
+
+<div class="container">
+    <div class="drawer">
+        @ChildContent
+    </div>
+</div>

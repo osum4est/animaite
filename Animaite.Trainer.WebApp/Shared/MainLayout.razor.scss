@@ -1,0 +1,15 @@
+@use "AnimaiteTheme" as theme;
+
+.ai-accent {
+  background: linear-gradient(theme.$secondary 0%, theme.$primary 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.separator {
+  background: linear-gradient(90deg, theme.$secondary-800 0%, theme.$primary-800 100%);
+  height: 2px;
+  width: 80%;
+  margin: 0 auto 16px;
+}

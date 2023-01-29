@@ -1,0 +1,146 @@
+@use "AnimaiteTheme" as theme;
+
+.container {
+  position: relative;
+  margin-right: 32px;
+
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+
+  &:hover,
+  &:active {
+    cursor: pointer;
+  }
+}
+
+span {
+  vertical-align: middle;
+}
+
+.label {
+  padding: 4px 16px 4px 32px;
+  font-size: 1.0rem;
+  margin-top: 10px;
+  transition: theme.$transition;
+  position: relative;
+  z-index: 3;
+  top: 0;
+  left: 0;
+}
+
+.label-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  transition: theme.$transition;
+}
+
+.bg-selected {
+  background: linear-gradient(90deg, theme.$secondary 0%, theme.$primary 100%);
+  opacity: 0;
+}
+
+.bg-hover {
+  background: linear-gradient(90deg, theme.$secondary-400 0%, theme.$primary-400 100%);
+  opacity: 0;
+}
+
+.bg-active {
+  background: linear-gradient(90deg, theme.$secondary-300 0%, theme.$primary-300 100%);
+  opacity: 0;
+}
+
+.shadow {
+  position: absolute;
+  z-index: 1;
+  top: 5px;
+  left: 0;
+  width: calc(100% + 5px);
+  height: 100%;
+  background: linear-gradient(90deg, theme.$secondary-800 0%, theme.$primary-800 100%);
+  opacity: 0;
+  transition: theme.$transition;
+}
+
+.blur-shadow {
+  position: absolute;
+  z-index: 0;
+  top: 5px;
+  left: 0;
+  width: calc(100% + 5px);
+  height: 100%;
+  background: linear-gradient(90deg, theme.$secondary-800 0%, theme.$primary-800 100%);
+  scale: 1.1;
+  filter: blur(15px);
+  opacity: 0;
+  transition: theme.$transition;
+}
+
+.selected {
+  > .label {
+    color: theme.$on-primary;
+  }
+
+  > .bg-selected {
+    opacity: 1;
+  }
+
+  > .shadow {
+    opacity: 1;
+  }
+
+  > .blur-shadow {
+    opacity: 1;
+  }
+}
+
+.container:hover {
+  > .label {
+    color: theme.$on-primary;
+  }
+
+  > .label {
+    left: 2px;
+    top: 2px;
+  }
+
+  > .label-bg {
+    top: 2px;
+    left: 0;
+    width: calc(100% + 2px);
+  }
+
+  > .bg-hover {
+    opacity: 1;
+  }
+
+  > .shadow {
+    opacity: 1;
+  }
+}
+
+.container:active {
+  > .label {
+    color: theme.$on-primary;
+  }
+ 
+  > .label {
+    top: 5px;
+    left: 5px;
+  }
+
+  > .label-bg {
+    top: 5px;
+    left: 0;
+    width: calc(100% + 5px);
+  }
+
+  > .bg-active {
+    opacity: 1;
+  }
+}

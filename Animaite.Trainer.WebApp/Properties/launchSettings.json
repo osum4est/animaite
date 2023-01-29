@@ -1,0 +1,47 @@
+{
+  "iisSettings": {
+    "iisExpress": {
+      "applicationUrl": "http://localhost:13955",
+      "sslPort": 44332
+    }
+  },
+  "profiles": {
+    "http": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": true,
+      "applicationUrl": "http://localhost:5137",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    "https": {
+      "commandName": "Project",
+      "dotnetRunMessages": true,
+      "launchBrowser": true,
+      "applicationUrl": "https://localhost:7249;http://localhost:5137",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    "IIS Express": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    },
+    "Watch": {
+      "commandName": "Executable",
+      "workingDirectory": "$(ProjectDir)",
+      "executablePath": "dotnet",
+      "commandLineArgs": "watch run --non-interactive"
+    },
+    "Watch Sass": {
+      "commandName": "Executable",
+      "workingDirectory": "$(ProjectDir)",
+      "executablePath": "sass",
+      "commandLineArgs": "--watch . -I wwwroot"
+    }
+  }
+}

@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+        
+        <DefaultItemExcludes>$(DefaultItemExcludes);**/*.scss</DefaultItemExcludes>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <Folder Include="Components" />
+        <Folder Include="DatasetManager\Components" />
+    </ItemGroup>
+    
+    <ItemGroup>
+        <Scss Include="**\*\*.scss" Watch="False" />
+    </ItemGroup>
+    
+    <ItemGroup>
+      <Content Update="Theme\AnimaiteTheme.razor.js">
+        <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+        <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      </Content>
+    </ItemGroup>
+    
+    <Target Name="CompileScss" BeforeTargets="Build">
+        <Message Importance="high" Text="Compiling SCSS files" />
+        <Exec Command="sass %(Scss.Identity) %(relativedir)%(filename).css -I wwwroot" />  
+    </Target>
+
+</Project>

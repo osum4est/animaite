@@ -1,0 +1,52 @@
+@use "AnimaiteTheme" as theme;
+
+button {
+  padding: 8px;
+  background-color: theme.$primary;
+  border: none;
+  color: theme.$on-primary;
+  font-size: 1.0rem;
+  cursor: pointer;
+  transition: theme.$transition;
+  text-transform: uppercase;
+  font-weight: 880;
+  letter-spacing: 0.05em;
+  box-shadow: 5px 5px theme.$primary-900;
+  position: relative;
+  top: 0;
+  left: 0;
+
+  &:hover {
+    background-color: theme.$primary-400;
+    position: relative;
+    top: 2px;
+    left: 2px;
+    box-shadow: 3px 3px theme.$primary-900;
+  }
+
+  &:active {
+    background-color: theme.$primary-200;
+    position: relative;
+    top: 5px;
+    left: 5px;
+    box-shadow: 0 0 theme.$primary-900;
+  }
+
+  &.disabled {
+    background-color: theme.$primary-300;
+    color: theme.$on-primary;
+    cursor: not-allowed;
+  }
+
+  &.disabled:hover {
+    background-color: theme.$primary-300;
+    color: theme.$on-primary;
+    cursor: not-allowed;
+  }
+
+  &.disabled:active {
+    background-color: theme.$primary-300;
+    color: theme.$on-primary;
+    cursor: not-allowed;
+  }
+}

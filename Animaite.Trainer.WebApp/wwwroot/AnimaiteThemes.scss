@@ -1,0 +1,40 @@
+@use "AnimaiteThemeUtils" as utils;
+
+$theme-dark: utils.create-theme(
+        //$primary: #8A00FF,
+        $primary: #FF6700,
+        $secondary: #FF00EF,
+        $surface: #212121,
+        $background: #292526,
+        $on-primary: #D0F0FF,
+        $on-secondary: #000000,
+        $on-surface: #ffffff,
+        $on-background: #ffffff,
+        $font: "Poppins, sans-serif"
+);
+
+
+$theme-light: utils.create-theme(
+        $primary: #FF6700,
+        $secondary: #FF00EF,
+        $surface: #FFFFFF,
+        $background: #FFF6EF,
+        $on-primary: #000000,
+        $on-secondary: #FFFFFF,
+        $on-surface: #000000,
+        $on-background: #ffffff,
+        $font: "Poppins, sans-serif"
+);
+
+:root {
+  // Use light theme by default
+  @include utils.load-theme($theme-light);
+}
+
+.theme-dark {
+  @include utils.load-theme($theme-dark);
+}
+
+.theme-light {
+  @include utils.load-theme($theme-light);
+}

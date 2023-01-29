@@ -1,0 +1,66 @@
+@implements IDisposable
+@inject NavigationManager NavigationManager
+
+@code {
+
+    [Parameter]
+    public RenderFragment? ChildContent { get; set; }
+
+    [Parameter]
+    public bool DefaultRoute { get; set; }
+
+    private bool Selected { get; set; }
+
+    [Parameter]
+    public string Icon { get; set; } = "";
+
+    [Parameter]
+    public string Route { get; set; } = "";
+
+    void OnClick()
+    {
+        NavigationManager.NavigateTo(Route);
+    }
+
+    private void UpdateSelected()
+    {
+        var uri = NavigationManager.Uri.Replace(NavigationManager.BaseUri, "");
+        uri = uri.Replace("/", "");
+        var route = Route.Replace("/", "");
+        Selected = uri == route || DefaultRoute && uri == "";
+        StateHasChanged();
+    }
+
+    private void OnLocationChanged(object? sender, LocationChangedEventArgs e)
+    {
+        UpdateSelected();
+    }
+
+    protected override void OnInitialized()
+    {
+        NavigationManager.LocationChanged += OnLocationChanged;
+        UpdateSelected();
+    }
+
+    public void Dispose()
+    {
+        NavigationManager.LocationChanged -= OnLocationChanged;
+    }
+
+}
+
+<div class="container @(Selected ? "selected" : "")" @onclick="@OnClick">
+    <div class="label">
+        <span class="material-symbols-outlined">
+            @Icon
+        </span>
+        <span>
+            @ChildContent
+        </span>
+    </div>
+    <div class="label-bg bg-selected"></div>
+    <div class="label-bg bg-hover"></div>
+    <div class="label-bg bg-active"></div>
+    <div class="shadow"></div>
+    <div class="blur-shadow"></div>
+</div>

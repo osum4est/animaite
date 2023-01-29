@@ -1,0 +1,15 @@
+@use "AnimaiteTheme" as theme;
+
+* {
+  color: theme.$on-surface;
+}
+
+.container {
+  float: left;
+  background-color: theme.$surface;
+  height: 100vh;
+}
+
+.drawer {
+  padding-top: 16px;
+}
