@@ -1,0 +1,11 @@
+@use "AnimaiteTheme" as theme;
+
+.sheet {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.animation-label {
+  font-size: 0.7rem;
+  text-align: center;
+}

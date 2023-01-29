@@ -1,0 +1,37 @@
+@using Animaite.Trainer.Common.Models
+
+@inject IJSRuntime JsRuntime
+
+@code {
+
+    [Parameter]
+    public required string SheetUrl { get; set; }
+
+    [Parameter]
+    public required SpriteSheetGroup Group { get; set; }
+
+    [Parameter]
+    public required SpriteAnimation Animation { get; set; }
+
+    [Parameter]
+    public string? Class { get; set; }
+
+    private IJSObjectReference? _module;
+    private ElementReference _element;
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            _module = await JsRuntime.InvokeAsync<IJSObjectReference>("import", "./DatasetManager/Components/AnimatedSprite.razor.js");
+            await _module.InvokeVoidAsync("animate", Animation, Animation.GetFrames(), _element);
+        }
+    }
+
+}
+
+<div @ref="_element" class="@(Class ?? "")" style="
+background: url('@SheetUrl');
+width: @(Group.SpriteWidth)px;
+height: @(Group.SpriteHeight)px;
+"></div>

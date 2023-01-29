@@ -1,9 +1,45 @@
 ﻿@page "/SpriteViewer"
+@using Animaite.Trainer.WebApp.DatasetManager.Services
+
+@inject Services.DatasetManager DatasetManager
 
 @code {
 
+    protected override async Task OnInitializedAsync()
+    {
+        await DatasetManager.LoadDataset("Dataset/sheets.yaml");
+    }
 
+    private string GetSheetUrl(string sheet)
+    {
+        return Path.GetRelativePath(Directory.GetCurrentDirectory(), sheet);
+    }
 
 }
 
-<Heading>Sprites</Heading>
+@if (!DatasetManager.Loaded)
+{
+    <Heading>Loading...</Heading>
+}
+else
+{
+    @foreach (var group in DatasetManager.Dataset!.Groups)
+    {
+        <Heading>@group.Name</Heading>
+        <ul>
+            @foreach (var sheet in group.SpriteSheets)
+            {
+                <Heading Size="Heading.HeadingSize.H3">@Path.GetFileNameWithoutExtension(sheet)</Heading>
+                <div class="sheet">
+                    @foreach (var animation in group.Animations)
+                    {
+                        <div class="animation">
+                            <AnimatedSprite SheetUrl="@GetSheetUrl(sheet)" Group="@group" Animation="@animation" Class="spr"/>
+                            <p class="animation-label">@animation.Name</p>
+                        </div>
+                    }
+                </div>
+            }
+        </ul>
+    }
+}
